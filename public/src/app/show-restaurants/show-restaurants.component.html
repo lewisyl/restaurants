@@ -1,0 +1,22 @@
+<button class="btn btn-success" [routerLink]="['/restaurants/new']">New Restaurant</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Restaurant</th>
+            <th scope="col">Cuisine</th>
+            <th scope="col">Action Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let restaurant of restaurants">
+            <td>{{ restaurant.name }}</td>
+            <td>{{ restaurant.cuisine }}</td>
+            <td>
+                <button class="btn btn-info" [routerLink]="['/restaurants', restaurant._id]">Read Reviews</button>
+                <button class="btn btn-warning" id="updateForm" [routerLink]="['/restaurants/edit', restaurant._id]">Update</button>
+                <button class="btn btn-danger" (click)="deleteRestaurants(restaurant._id)" *ngIf="restaurant.allowDelete">DELETE!</button>
+            </td>
+        </tr>
+    </tbody>
+    <router-outlet></router-outlet>
+</table>

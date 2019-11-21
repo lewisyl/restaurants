@@ -1,0 +1,18 @@
+<button class="btn btn-success" [routerLink]="['/restaurants/review',resID]">New Review</button>
+<a class="btn btn-info" [routerLink]="['/restaurants']" role="button">Back to Home</a>
+<table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">Customer</th>
+                <th scope="col">Stars</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rate of rates">
+                <td>{{ rate.customer }}</td>
+                <td>{{ rate.rate }}</td>
+                <td>{{ rate.description }}</td>
+            </tr>
+        </tbody>
+    </table>
